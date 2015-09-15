@@ -175,7 +175,7 @@
                 var finalLocation = false;
                 var counter = 0;
                 var locationArray = [];
-                
+                var myPath = [];
                 // iterate through the locations and create map markers for each location
                 $(json.locations).each(function(key, value){
                     var latitude =  $(this).attr('latitude');
@@ -194,7 +194,10 @@
                             displayCityName(latitude, longitude);
                         }
                     }
-
+                    
+                    // Saving path points into an array
+                    myPath.push(L.latLng(latitude, longitude));
+                    
                     var marker = createMarker(
                         latitude,
                         longitude,
@@ -209,6 +212,12 @@
                         $(this).attr('extraInfo'),
                         gpsTrackerMap, finalLocation);
                 });
+
+                // create a red polyline from an array of LatLng points
+                var polyline = L.polyline(myPath, {color: 'red'}).addTo(gpsTrackerMap);
+
+                // zoom the map to the polyline
+                gpsTrackerMap.fitBounds(polyline.getBounds());     
                 
                 // fit markers within window
                 var bounds = new L.LatLngBounds(locationArray);
