@@ -31,6 +31,13 @@ https://www.websmithing.com/2014/01/20/quick-start-guide-for-gpstracker-3/
 
 *************
 
+Sep 15, 2015 - v4.0.4
+Added polylines between markers
+You can see an example here:
+https://copy.com/SUXfumIxNMFZcYM9
+
+*************
+
 Sep 8, 2015 - v4.0.4
 
 Added support for Sqlite and PostgreSQL, thanks Brent Fraser
